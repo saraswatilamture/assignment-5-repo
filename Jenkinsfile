@@ -1,0 +1,24 @@
+pipeline {
+    agent { label 'qa' }
+
+    stages {
+
+        stage('Clone Code') {
+            steps {
+                deleteDir()
+
+                git branch: 'qa',
+                url: 'https://github.com/saraswatilamture/assignment-5-repo.git'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh '''
+                sudo cp index.html /var/www/html/index.html
+                sudo systemctl restart httpd
+                '''
+            }
+        }
+    }
+}
