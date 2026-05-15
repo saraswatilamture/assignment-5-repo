@@ -8,7 +8,7 @@ pipeline {
                 deleteDir()
 
                 git branch: 'dev',
-                url: 'https://github.com/username/assignment-5-repo.git'
+                url: 'https://github.com/saraswatilamture/assignment-5-repo.git'
             }
         }
 
